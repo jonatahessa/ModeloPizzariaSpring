@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html layout:decorate="~{backoffice/geral/barraSuperiorBackoffice}">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <section layout:fragment="content" class="container-fluid">
+          <h2 class="text-center">Gerenciar Produto</h2>
+
+          <form th:action="@{/backoffice/produto/salvar}" th:object="${produto}" method="post" novalidate>
+
+            <input type="hidden" th:field="*{codigoProduto}">
+
+            <div class="">
+              <label for="nome">Nome</label>
+              <input th:field="*{nomeProduto}" type="text" name="" value="">
+            </div>
+
+            <div class="">
+              <label for="">Descrição</label>
+              <textarea th:field="*{descricaoProduto}" rows="8" cols="80"></textarea>
+            </div>
+
+            <div class="">
+              <label for="">Preço</label>
+              <input type="text" th:field="*{valorProduto}">
+            </div>
+
+            <div class="">
+              <label for="">Tipo</label>
+              <select th:field="*{tipoProduto}">
+                <option value="Pizza">Pizza</option>
+                <option value="Bebida">Bebida</option>
+              </select>
+            </div>
+
+            <div class="">
+              <a class="btn btn-danger" th:href="@{/backoffice/produto}">Cancelar</a>
+              <button class="btn btn-success" type="submit">Salvar</button>
+            </div>
+          </form>
+        </section>
+    </body>
+</html>
