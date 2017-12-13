@@ -53,7 +53,6 @@ public class Produto implements Serializable {
     @Column(name = "TP_PRODUTO", length = 30, nullable = false)
     private String tipoProduto;
     
-    @NotNull
     @Column(name = "EN_PRODUTO", nullable = false)
     private Boolean enabledProduto;
 

@@ -26,7 +26,8 @@ public class ClientSidePaginaInicial {
     
     @RequestMapping
     public ModelAndView abrirTelaInicial() {
-        List<Produto> produtos = produtoService.listar();
-        return new ModelAndView("clientside/paginaInicialClientside").addObject("produtos", produtos);
+        List<Produto> pizzas = produtoService.listarPorTipo("Pizza");
+        List<Produto> bebidas = produtoService.listarPorTipo("Bebida");
+        return new ModelAndView("clientside/paginaInicialClientside").addObject("pizzas", pizzas).addObject("bebidas", bebidas);
     }
 }

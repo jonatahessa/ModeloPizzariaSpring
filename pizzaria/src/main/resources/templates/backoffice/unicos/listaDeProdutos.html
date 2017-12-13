@@ -1,11 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html layout:decorate="~{backoffice/geral/barraSuperiorBackoffice}">
     <head>
-        <title>TODO supply a title</title>
+        <title>Produtos</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>TODO write content</div>
+        <section layout:fragment="content">
+          <div class="">
+            <table>
+              <thead>
+                <tr>
+                  <th>Código</th>
+                  <th>Nome</th>
+                  <th>Descrição</th>
+                  <th>Preço</th>
+                  <th>Tipo</th>
+                  <th>Ativo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="p:${produtos}">
+                  <td th:text="${p.}"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
     </body>
 </html>

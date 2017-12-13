@@ -11,6 +11,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -19,7 +20,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class ProdutoServiceImpl implements ProdutoService {
-    
+
     @PersistenceContext
     private EntityManager entityManager;
 
@@ -27,13 +28,16 @@ public class ProdutoServiceImpl implements ProdutoService {
     public List<Produto> listar() {
         Query query = entityManager.createQuery(
                 "SELECT p FROM Produto p "
-                + "WHERE en_produto = 1");
+                + "WHERE p.enabledProduto = true");
         return query.getResultList();
     }
 
     @Override
     public List<Produto> listarPorTipo(String tipo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Query query = entityManager.createQuery(
+                "SELECT p FROM Produto p "
+                + "WHERE p.tipoProduto = :tipo").setParameter("tipo", tipo);
+        return query.getResultList();
     }
 
     @Override
@@ -42,8 +46,9 @@ public class ProdutoServiceImpl implements ProdutoService {
     }
 
     @Override
+    @Transactional
     public void incluir(Produto produto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        entityManager.persist(produto);
     }
 
     @Override
@@ -60,5 +65,5 @@ public class ProdutoServiceImpl implements ProdutoService {
     public List<Produto> pesquisar(String pesquisa) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }
