@@ -21,7 +21,17 @@
               </thead>
               <tbody>
                 <tr th:each="p:${produtos}">
-                  <td th:text="${p.}"></td>
+                  <td th:text="${p.codigoProduto}"></td>
+                  <td th:text="${p.nomeProduto}"></td>
+                  <td th:text="${p.descricaoProduto}"></td>
+                  <td th:text="${p.valorProduto}"></td>
+                  <td th:text="${p.tipoProduto}"></td>
+                  <td th:if="${p.enabledProduto == true}">
+                    <button class="btn btn-success" type="button" name="button">Ativo</button>
+                  </td>
+                  <td th:if="${p.enabledProduto == false}">
+                    <button class="btn btn-danger" type="button" name="button">Inativo</button>
+                  </td>
                 </tr>
               </tbody>
             </table>

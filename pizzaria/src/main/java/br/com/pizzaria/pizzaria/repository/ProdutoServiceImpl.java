@@ -25,12 +25,21 @@ public class ProdutoServiceImpl implements ProdutoService {
     private EntityManager entityManager;
 
     @Override
-    public List<Produto> listar() {
+    public List<Produto> listarClientside() {
         Query query = entityManager.createQuery(
                 "SELECT p FROM Produto p "
                 + "WHERE p.enabledProduto = true");
         return query.getResultList();
     }
+    
+    @Override
+    public List<Produto> listarBackoffice() {
+        Query query = entityManager.createQuery(
+                "SELECT p FROM Produto p");
+        return query.getResultList();
+    }
+    
+    
 
     @Override
     public List<Produto> listarPorTipo(String tipo) {

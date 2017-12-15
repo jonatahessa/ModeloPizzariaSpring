@@ -32,7 +32,7 @@ public class GerenciaProdutoBackoffice {
 
     @RequestMapping
     public ModelAndView abrirTelaInicialBackoffice() {
-        List<Produto> produtos = produtoService.listar();
+        List<Produto> produtos = produtoService.listarBackoffice();
         return new ModelAndView("backoffice/unicos/listaDeProdutos").addObject("produtos", produtos);
     }
 
@@ -51,7 +51,7 @@ public class GerenciaProdutoBackoffice {
                     .addObject("produto", p);
         }
         boolean inclusao = (p.getCodigoProduto() == null);
-        
+
         if (inclusao) {
             p.setEnabledProduto(true);
             produtoService.incluir(p);
@@ -62,5 +62,19 @@ public class GerenciaProdutoBackoffice {
         redirectAttributes.addFlashAttribute("msgSucesso",
                 "Produto " + p.getNomeProduto() + " cadastrado com sucesso");
         return new ModelAndView("redirect:/backoffice/produto");
+    }
+
+    @RequestMapping(value = "/ativar", method = RequestMethod.POST)
+    public void ativarProduto(Long id) {
+        Produto produto = produtoService.obter(id);
+        produto.setEnabledProduto(Boolean.TRUE);
+        produtoService.alterar(produto);
+    }
+
+    @RequestMapping(value = "/desativar", method = RequestMethod.POST)
+    public void desativarProduto(Long id) {
+        Produto produto = produtoService.obter(id);
+        produto.setEnabledProduto(Boolean.FALSE);
+        produtoService.alterar(produto);
     }
 }

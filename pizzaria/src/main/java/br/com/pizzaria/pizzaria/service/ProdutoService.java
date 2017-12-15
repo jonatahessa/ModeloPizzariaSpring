@@ -15,7 +15,9 @@ import java.util.List;
  */
 public interface ProdutoService extends Serializable {
     
-    public List<Produto> listar();
+    public List<Produto> listarClientside();
+    
+    public List<Produto> listarBackoffice();
     
     public List<Produto> listarPorTipo(String tipo);
     
