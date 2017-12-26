@@ -1,83 +1,50 @@
 function main() {
-  var botoes = document.querySelectorAll(".botoes-top");
-  for (var i = 0; i < botoes.length; i++) {
-    botoes[i].addEventListener("click", mudarPagina);
-  }
+  document.querySelector("#buttonhome").addEventListener("click", home);
+  document.querySelector("#buttonpromocoes").addEventListener("click", promocao);
+  document.querySelector("#buttonnossacasa").addEventListener("click", nossacasa);
+  document.querySelector("#buttoncardapio").addEventListener("click", cardapio);
+  document.querySelector("#buttonlocalizacao").addEventListener("click", localizacao);
+  document.querySelector("#buttoncontato").addEventListener("click", scrollcontato);
+  document.querySelector("#botao-pizza").addEventListener("click", mostrarpizzas);
+  document.querySelector("#botao-bebida").addEventListener("click", mostrarbebidas);
 }
 
-function mudarPagina(event) {
-  var botao = event.target.id;
-  var botoes = document.querySelectorAll(".botoes-top");
-  desmarcaBotoes(botoes);
-  marcaBotao(botao);
-  transicaoPaginas(botao);
+function home() {
+  window.scrollTo(0,0);
 }
 
-function marcaBotao(botao) {
-  document.getElementById(botao).classList.remove('non-selected');
-  document.getElementById(botao).classList.add('selected');
+function nossacasa() {
+  document.querySelector("#nossacasa").scrollIntoView();
 }
 
-function desmarcaBotoes(botoes) {
-  for (var i = 0; i < botoes.length; i++) {
-    botoes[i].classList.remove('selected');
-    botoes[i].classList.add('non-selected');
-  }
+function promocao() {
+  document.querySelector("#sessaopromocoes").scrollIntoView();
 }
 
-function transicaoPaginas(botao) {
-  var paginas = document.querySelectorAll(".paginas");
-  if (botao == "botao-sua") {
-    for (var i = 0; i < paginas.length; i++) {
-      if (paginas[i].id == "pagina-sua") {
-        paginas[i].classList.remove('non-show-on-click');
-        paginas[i].classList.add('show-on-click');
-      } else {
-       paginas[i].classList.add('non-show-on-click');
-       paginas[i].classList.remove('show-on-click');
-    }
-  }
-} else if (botao == "botao-cardapio") {
-    for (var i = 0; i < paginas.length; i++) {
-      if (paginas[i].id == "pagina-cardapio") {
-        paginas[i].classList.remove('non-show-on-click');
-        paginas[i].classList.add('show-on-click');
-      } else {
-        paginas[i].classList.add('non-show-on-click');
-        paginas[i].classList.remove('show-on-click');
-      }
-    }
-  } else if (botao == "botao-promo") {
-      for (var i = 0; i < paginas.length; i++) {
-        if (paginas[i].id == "pagina-promo") {
-          paginas[i].classList.remove('non-show-on-click');
-          paginas[i].classList.add('show-on-click');
-        } else {
-          paginas[i].classList.add('non-show-on-click');
-          paginas[i].classList.remove('show-on-click');
-        }
-      }
-    } else if (botao == "botao-local") {
-        for (var i = 0; i < paginas.length; i++) {
-          if (paginas[i].id == "pagina-local") {
-            paginas[i].classList.remove('non-show-on-click');
-            paginas[i].classList.add('show-on-click');
-          } else {
-            paginas[i].classList.add('non-show-on-click');
-            paginas[i].classList.remove('show-on-click');
-          }
-        }
-      } else if (botao == "botao-contato") {
-          for (var i = 0; i < paginas.length; i++) {
-            if (paginas[i].id == "pagina-contato") {
-              paginas[i].classList.remove('non-show-on-click');
-              paginas[i].classList.add('show-on-click');
-            } else {
-              paginas[i].classList.add('non-show-on-click');
-              paginas[i].classList.remove('show-on-click');
-            }
-        }
-    }
+function cardapio() {
+  document.querySelector("#sessaocardapio").scrollIntoView();
+}
+
+function localizacao() {
+  document.querySelector("#sessaolocalizacao").scrollIntoView();
+}
+
+function scrollcontato() {
+  document.querySelector("#sessaocontato").scrollIntoView();
+}
+
+function mostrarpizzas() {
+  document.querySelector("#botao-bebida").classList.remove("ativo");
+  document.querySelector("#botao-pizza").classList.add("ativo");
+  document.querySelector("#pizzas").style.display = 'block';
+  document.querySelector("#bebidas").style.display = 'none';
+}
+
+function mostrarbebidas() {
+  document.querySelector("#botao-pizza").classList.remove("ativo");
+  document.querySelector("#botao-bebida").classList.add("ativo");
+  document.querySelector("#pizzas").style.display = 'none';
+  document.querySelector("#bebidas").style.display = 'block';
 }
 
 window.addEventListener("load", main);

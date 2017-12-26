@@ -28,7 +28,9 @@ public class ClientSidePaginaInicial {
     public ModelAndView abrirTelaInicial() {
         List<Produto> pizzas = produtoService.listarPorTipo("Pizza");
         List<Produto> bebidas = produtoService.listarPorTipo("Bebida");
+        List<Produto> promocoes = produtoService.listarPorTipo("Promo");
         return new ModelAndView("clientside/paginaInicialClientside")
+                .addObject("promocoes", promocoes)
                 .addObject("pizzas", pizzas)
                 .addObject("bebidas", bebidas);
     }
