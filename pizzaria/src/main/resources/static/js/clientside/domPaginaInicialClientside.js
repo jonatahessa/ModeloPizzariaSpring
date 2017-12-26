@@ -5,8 +5,6 @@ function main() {
   document.querySelector("#buttoncardapio").addEventListener("click", cardapio);
   document.querySelector("#buttonlocalizacao").addEventListener("click", localizacao);
   document.querySelector("#buttoncontato").addEventListener("click", scrollcontato);
-  document.querySelector("#botao-pizza").addEventListener("click", mostrarpizzas);
-  document.querySelector("#botao-bebida").addEventListener("click", mostrarbebidas);
 }
 
 function home() {

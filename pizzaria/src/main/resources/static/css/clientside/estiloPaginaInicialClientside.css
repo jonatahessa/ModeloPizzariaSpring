@@ -1,10 +1,18 @@
+body {
+    background: url(../../images/background.jpg) center center no-repeat fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 #menu {
   position: fixed;
   z-index: 150;
 }
 
-#carrossel {
-  padding-top: 60px;
+#carouselExampleIndicators {
+  padding: 0;
 }
 
 .botoes-nav {
@@ -15,61 +23,66 @@
   height: 100%;
 }
 
-.paginas {
-  transition: 1s;
+#faixa-contato {
+  background-color: #242424;
+  padding-top: 56px;
 }
 
-.texto-sem-quebra {
-  white-space: nowrap;
-}
-
-.selected {
-  background-color: #282828;
-  color: white;
-  transition: 1s;
-}
-
-.non-selected {
-  background-color: #f5f5ec;
-  transition: 1s;
-}
-
-.non-selected:hover {
-  background-color: #bbbbbb;
+#faixa-contato h3 {
   color: white;
 }
 
-.img-carousel {
+.imagens-carousel {
   width: 100%;
 }
 
-#titulo {
-  padding-top: 3%;
+#nossacasa {
+  margin-top: 40px;
+  padding-top: 20px;
 }
 
-.div-texto-central {
-  margin: auto;
+.sessoes-estilo {
+  background-color: white;
+  opacity: 0.9;
+}
+
+.sessoes-posicao {
   float: none;
+  margin: auto;
 }
 
-.non-show-on-click {
-  display: none;
+.titulopreco * {
+  display: inline;
 }
 
-.paginas {
-  transition: 1s;
-  animation-name: exibir;
-  animation-duration: 1s;
-  animation-fill-mode: both;
-  animation-timing-function: ease-in-out;
+.titulopreco h3 {
+  color: red;
+  font-size: 30px;
 }
 
-@keyframes exibir {
-  0% { visibility: hidden; opacity: 0; }
-  25% { visibility: visible; opacity: 0.5; }
-  75% { visibility: visible; opacity: 1; }
+.titulopreco p {
+  float: right;
+  font-size: 30px;
+  color: green;
 }
 
-.no-margin {
-  margin: 0;
+.titulopreco hr {
+  clear: both;
+}
+
+#mapa-incorp {
+  height: 400px;
+}
+
+#sessaocontato {
+  background-color: #242424;
+  color: #c7c7c7;
+}
+#sessaocontato a {
+  color: #c7c7c7;
+}
+
+#telefones-contato {
+  color: #c7c7c7;
+  text-decoration: none;
 }
