@@ -14,41 +14,15 @@
     </head>
     <body>
       <section class="container-fluid">
-        <div class="row">
-          <nav id="menu" class="navbar navbar-expand-lg navbar-light bg-light col-12">
-            <h3>Modelo Pizzaria</h3>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="navbar-nav">
-
-                <li class="nav-item">
-                  <button id="buttonhome" type="button" class="nav-link botoes-nav">Home</button>
-                </li>
-
-                <li class="nav-item">
-                  <button id="buttonnossacasa" type="button" class="nav-link botoes-nav">Nossa Casa</button>
-                </li>
-
-                <li class="nav-item">
-                  <button id="buttonpromocoes" type="button" class="nav-link botoes-nav">Promoções</button>
-                </li>
-
-                <li class="nav-item">
-                  <button id="buttoncardapio" type="button" class="nav-link botoes-nav">Cardápio</button>
-                </li>
-
-                <li class="nav-item">
-                  <button id="buttonlocalizacao" type="button" class="nav-link botoes-nav">Localização</button>
-                </li>
-
-                <li class="nav-item">
-                  <button id="buttoncontato" type="button" class="nav-link botoes-nav">Contato</button>
-                </li>
-              </ul>
-            </div>
-          </nav>
+        <div id="menu" class="row">
+            <ul class="col-12">
+              <li><button type="button" id="buttonhome">Home</button></li>
+              <li><button type="button" id="buttonnossacasa">Nossa Casa</button></li>
+              <li><button type="button" id="buttonpromocoes">Promoções</button></li>
+              <li><button type="button" id="buttoncardapio">Cardápio</button></li>
+              <li><button type="button" id="buttonlocalizacao">Localização</button></li>
+              <li><button type="button" id="buttoncontato">Contato</button></li>
+            </ul>
         </div>
 
         <div id="faixa-contato" class="row">
@@ -87,7 +61,7 @@
         </div>
 
         <div class="row" id="nossacasa">
-          <div class="col-xs-12 col-sm-12 col-lg-8 sessoes-estilo sessoes-posicao">
+          <div id="content-nossacasa" class="col-xs-12 col-sm-12 col-lg-8 sessoes-estilo sessoes-posicao">
             <h1 class="titulos">Nossa Casa</h1>
             <hr/>
             <div id="fachada">

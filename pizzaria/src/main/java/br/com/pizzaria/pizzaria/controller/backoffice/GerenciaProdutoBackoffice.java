@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,7 +25,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  * @author joliveira
  */
 @Controller
-@RequestMapping("/backoffice/produto")
+@RequestMapping("/manutencao")
 public class GerenciaProdutoBackoffice {
 
     @Autowired
@@ -39,6 +40,12 @@ public class GerenciaProdutoBackoffice {
     @RequestMapping("/novo")
     public ModelAndView abrirTelaNovoBackoffice() {
         return new ModelAndView("backoffice/unicos/produtoAdicionarAlterar").addObject("produto", new Produto());
+    }
+    
+    @RequestMapping("/editar/{id}")
+    public ModelAndView abrirTelaEditarBackoffice(@PathVariable("id") Long idProduto) {
+        Produto produto = produtoService.obter(idProduto);
+        return new ModelAndView("backoffice/unicos/produtoAdicionarAlterar").addObject("produto", produto);
     }
 
     @RequestMapping(value = "/salvar", method = RequestMethod.POST)
