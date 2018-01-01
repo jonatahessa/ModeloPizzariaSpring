@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html layout:decorate="~{backoffice/geral/barraSuperiorBackoffice}">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,26 +11,7 @@
         <title>Manutenção</title>
     </head>
     <body>
-        <section id="sessaoprincipal" class="container-fluid">
-          <div class="cabecalho">
-          <div class="row">
-
-            <div id="titulo" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <h1>Manutenção</h1>
-            </div>
-          </div>
-
-          <div class="row">
-            <div id="logout" class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-              <form action="Logout" method="post">
-                <button type="submit" name="button"><span class="glyphicon glyphicon-off"></span> Sair</button>
-              </form>
-            </div>
-            <div id="divnovo">
-                <a id="novo" th:href="@{/manutencao/novo}" class="btn btn-primary" name="novo">Novo</a>
-            </div>
-          </div>
-          </div>
+        <section layout:fragment="content" class="container-fluid">
 
             <div id="pizzas" class="row">
                 <table class="table table-striped col-12" id="tabelapizzas">

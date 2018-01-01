@@ -68,7 +68,7 @@ public class GerenciaProdutoBackoffice {
 
         redirectAttributes.addFlashAttribute("msgSucesso",
                 "Produto " + p.getNomeProduto() + " cadastrado com sucesso");
-        return new ModelAndView("redirect:/backoffice/produto");
+        return new ModelAndView("redirect:/manutencao");
     }
 
     @RequestMapping(value = "/ativar", method = RequestMethod.POST)

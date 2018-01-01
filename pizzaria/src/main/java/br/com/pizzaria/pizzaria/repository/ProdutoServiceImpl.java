@@ -31,15 +31,13 @@ public class ProdutoServiceImpl implements ProdutoService {
                 + "WHERE p.enabledProduto = true");
         return query.getResultList();
     }
-    
+
     @Override
     public List<Produto> listarBackoffice() {
         Query query = entityManager.createQuery(
                 "SELECT p FROM Produto p");
         return query.getResultList();
     }
-    
-    
 
     @Override
     public List<Produto> listarPorTipo(String tipo) {
@@ -51,7 +49,10 @@ public class ProdutoServiceImpl implements ProdutoService {
 
     @Override
     public Produto obter(Long codigoProduto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Query query = entityManager.createQuery(
+                "SELECT p FROM Produto p "
+                + "WHERE p.codigoProduto = :id").setParameter("id", codigoProduto);
+        return (Produto) query.getSingleResult();
     }
 
     @Override
@@ -61,8 +62,9 @@ public class ProdutoServiceImpl implements ProdutoService {
     }
 
     @Override
+    @Transactional
     public void alterar(Produto produto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        entityManager.merge(produto);
     }
 
     @Override
