@@ -5,38 +5,56 @@
  */
 package br.com.pizzaria.pizzaria.repository;
 
-import br.com.pizzaria.pizzaria.entity.User;
-import br.com.pizzaria.pizzaria.service.UserService;
+import br.com.pizzaria.pizzaria.entity.Usuario;
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import br.com.pizzaria.pizzaria.service.UsuarioService;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author joliveira
  */
-public class UserServiceImpl implements UserService {
+@Repository
+public class UserServiceImpl implements UsuarioService {
+    
+    @PersistenceContext
+    private EntityManager entityManager;
 
     @Override
-    public List<User> listar() {
+    public List<Usuario> listar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<User> listarPorRole(String roleUser) {
+    public List<Usuario> listarPorRole(String roleUser) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public User obter(Long codigoUser) {
+    public Usuario obter(Long codigoUser) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    @Override
+    public Usuario obterPorName(String name) {
+        Query query = entityManager.createQuery("SELECT u FROM Usuario u WHERE u.loginUser = :username").setParameter("username", name);     
+        Usuario user = (Usuario) query.getSingleResult();        
+        if (user == null) {
+            return null;
+        }      
+        return user;
+    }
+
+    @Override
+    public void incluir(Usuario user) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void incluir(User user) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void alterar(User user) {
+    public void alterar(Usuario user) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -46,7 +64,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> pesquisar(String pesquisa) {
+    public List<Usuario> pesquisar(String pesquisa) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

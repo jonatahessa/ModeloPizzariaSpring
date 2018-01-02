@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html layout:decorate="~{backoffice/geral/barraSuperiorBackoffice}">
     <head>
         <title>Gerenciar Produto</title>
         <meta charset="UTF-8">
@@ -12,7 +12,7 @@
         <link rel="stylesheet" th:href="@{/css/backoffice/estiloProdutoAdicionarAlterar.css}">
     </head>
     <body>
-        <section class="container-fluid">
+        <section layout:fragment="content" class="container-fluid">
             <div class="row">
                 <form id="formulario" class="col-xs-12 col-sm-12 col-lg-6" th:action="@{/manutencao/salvar}" th:object="${produto}" method="post">
 
@@ -49,11 +49,11 @@
 
                     <div class="form-inline">
                       <div class="col-6">
-                        <a th:href="@{/manutencao}" class="btn btn-danger form-control">Cancelar</a>
+                        <a th:href="@{/manutencao}" class="btn btn-danger btn-block" role="button">Cancelar</a>
                       </div>
 
                       <div class="col-6">
-                        <button type="submit" class="btn btn-success botoes form-control">Salvar</button>
+                        <button type="submit" class="btn btn-success btn-block">Salvar</button>
                       </div>
                     </div>
                 </form>

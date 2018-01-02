@@ -6,6 +6,7 @@
 package br.com.pizzaria.pizzaria.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.security.core.GrantedAuthority;
 
 /**
  *
@@ -21,29 +23,32 @@ import org.hibernate.validator.constraints.NotBlank;
  */
 @Entity
 @Table(name = "TB_USER")
-public class User implements Serializable {
-    
+public class Usuario implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_USER")
     private Long codigoUser;
-    
+
     @NotBlank(message = "O Login é obrigatório!")
     @Size(min = 6, max = 20, message = "O login deve conter no mínimo 6 e no máximo 20 caractéres!")
     @Column(name = "LG_USER", length = 20, nullable = false)
     private String loginUser;
-    
+
     @NotBlank(message = "A senha é obrigatória!")
     @Size(min = 8, max = 20, message = "A senha deve conter no mínimo 8 e no máximo 20 caractéres!")
     @Column(name = "PW_USER", length = 20, nullable = false)
     private String passwordUser;
-    
+
     @NotBlank(message = "O grupo de acesso do usuário é obrigatório!")
     @Size(max = 10, message = "O grupo de acesso do usuário deve conter no máximo 10 caractéres!")
-    @Column(name = "RL_USER")
+    @Column(name = "RL_USER", nullable = false)
     private String roleUser;
 
-    public User() {
+    @Column(name = "EN_USER", nullable = false)
+    private Boolean enabledUser;
+
+    public Usuario() {
     }
 
     public Long getCodigoUser() {
@@ -77,7 +82,12 @@ public class User implements Serializable {
     public void setRoleUser(String roleUser) {
         this.roleUser = roleUser;
     }
-    
-    
-    
+
+    public Boolean getEnabledUser() {
+        return enabledUser;
+    }
+
+    public void setEnabledUser(Boolean enabledUser) {
+        this.enabledUser = enabledUser;
+    }
 }

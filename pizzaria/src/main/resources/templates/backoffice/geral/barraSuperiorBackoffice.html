@@ -13,15 +13,15 @@
         <link rel="stylesheet" th:href="@{/css/backoffice/estiloBackofficeBarraSuperior.css}">
     </head>
     <body>
-        <section class="container">
+        <section class="container-fluid">
           <div id="barra-superior" class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
               <h1 class="text-center">Manutenção</h1>
               <div>
-                <a><span class="fa fa-power-off" aria-hidden="true"></span></a>
+                <a th:href="@{/logout}"><span class="fa fa-power-off" aria-hidden="true"></span></a>
               </div>
               <div>
-                <a class="btn btn-primary" th:href="@{/manutencao/novo}">Novo</a>
+                <a class="btn btn-primary" th:href="@{/manutencao/novo}" role="button">Novo Produto</a>
               </div>
             </div>
           </div>
