@@ -79,8 +79,8 @@
             <hr/>
             <div th:each="promocao:${promocoes}" class="paineispromo">
                 <h3 th:text="${promocao.nomeProduto}"></h3>
-                <p th:text="${promocao.descricaoProduto}"></p>
-                <p th:text="${#numbers.formatCurrency(promocao.valorProduto)}"></p>
+                <p th:utext="${promocao.descricaoProduto}"></p>
+                <h2 th:text="${#numbers.formatCurrency(promocao.valorProduto)}"></h2>
               </div>
             </div>
           </div>

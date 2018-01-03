@@ -13,18 +13,17 @@
     <body>
         <section layout:fragment="content" class="container-fluid">
 
-            <div id="pizzas" class="row">
-                <table class="table table-striped col-12" id="tabelapizzas">
+            <div id="pizzas" class="row justify-content-center">
+                <table class="table table-hover">
                   <thead>
                     <tr>
-                        <th>Código</th>
-                        <th>Nome</th>
-                        <th>Descrição</th>
-                        <th>Preço</th>
-                        <th>Status</th>
-                        <th>Tipo</th>
-                        <th>Editar</th>
-                        <th>Ativação</th>
+                        <th scope="col">Código</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Preço</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Editar</th>
+                        <th scope="col">Ativação</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -33,17 +32,16 @@
                       <td th:text="${p.nomeProduto}"></td>
                       <td th:text="${p.descricaoProduto}"></td>
                       <td th:text="${p.valorProduto}"></td>
-                      <td th:text="${p.enabledProduto}"></td>
                       <td th:text="${p.tipoProduto}"></td>
-                      <td><a class="btn btn-warning" th:href="@{/manutencao/editar/{id} (id=${p.codigoProduto})}">Editar</a></td>
+                      <td><a class="btn btn-warning btn-block" role="button" th:href="@{/manutencao/editar/{id} (id=${p.codigoProduto})}">Editar</a></td>
                       <td><form th:action="@{/manutencao/ativar}" method="post" th:if="${p.enabledProduto == false}">
                         <input type="hidden" name="id-ativar" th:value="${p.codigoProduto}">
-                        <button class="btn btn-success" type="submit">Ativar</button>
+                        <button class="btn btn-success btn-block" type="submit">Ativar</button>
                       </form>
 
                       <form th:action="@{/manutencao/desativar}" method="post" th:if="${p.enabledProduto == true}">
                         <input type="hidden" name="id-desativar" th:value="${p.codigoProduto}">
-                        <button class="btn btn-danger" type="submit">Desativar</button>
+                        <button class="btn btn-danger btn-block" type="submit">Desativar</button>
                       </form></td>
                     </tr>
                   </tbody>

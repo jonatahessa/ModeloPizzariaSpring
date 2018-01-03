@@ -14,18 +14,21 @@
     </head>
     <body>
         <section class="container-fluid">
-          <div id="barra-superior" class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <h1 class="text-center">Manutenção</h1>
-              <div>
-                <a th:href="@{/logout}"><span class="fa fa-power-off" aria-hidden="true"></span></a>
-              </div>
-              <div>
-                <a class="btn btn-primary" th:href="@{/manutencao/novo}" role="button">Novo Produto</a>
-              </div>
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-center">Manutenção</h1>
+                </div>
             </div>
-          </div>
 
+            <div class="row justify-content-end">
+                <div class="col-2">
+                    <a class="btn btn-primary btn-block" th:href="@{/manutencao/novo}" role="button">+ Produto</a>
+                </div>
+
+                <div class="col-2">
+                    <a class="btn btn-dark btn-block" th:href="@{/logout}">Sair</a>
+                </div>
+            </div>
         </section>
 
         <div layout:fragment="content"></div>
