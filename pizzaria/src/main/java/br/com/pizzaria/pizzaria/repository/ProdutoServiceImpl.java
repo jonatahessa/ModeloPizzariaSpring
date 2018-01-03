@@ -43,7 +43,7 @@ public class ProdutoServiceImpl implements ProdutoService {
     public List<Produto> listarPorTipo(String tipo) {
         Query query = entityManager.createQuery(
                 "SELECT p FROM Produto p "
-                + "WHERE p.tipoProduto = :tipo").setParameter("tipo", tipo);
+                + "WHERE p.enabledProduto = true AND p.tipoProduto = :tipo").setParameter("tipo", tipo);
         return query.getResultList();
     }
 

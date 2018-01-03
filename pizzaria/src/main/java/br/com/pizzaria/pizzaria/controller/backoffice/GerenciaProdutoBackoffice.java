@@ -15,8 +15,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -72,16 +74,20 @@ public class GerenciaProdutoBackoffice {
     }
 
     @RequestMapping(value = "/ativar", method = RequestMethod.POST)
-    public void ativarProduto(Long id) {
+    public ModelAndView ativarProduto(@RequestParam("id-ativar") Long id) {
         Produto produto = produtoService.obter(id);
         produto.setEnabledProduto(Boolean.TRUE);
         produtoService.alterar(produto);
+        
+        return new ModelAndView("redirect:/manutencao");
     }
 
     @RequestMapping(value = "/desativar", method = RequestMethod.POST)
-    public void desativarProduto(Long id) {
+    public ModelAndView desativarProduto(@RequestParam("id-desativar") Long id) {
         Produto produto = produtoService.obter(id);
         produto.setEnabledProduto(Boolean.FALSE);
         produtoService.alterar(produto);
+        
+        return new ModelAndView("redirect:/manutencao");
     }
 }
