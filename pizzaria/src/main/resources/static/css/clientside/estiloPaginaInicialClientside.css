@@ -6,6 +6,11 @@ body {
     background-size: cover;
 }
 
+hr.style6 {
+	background-color: black;
+	border-top: 2px dotted black;
+}
+
 @media (min-width: 740px) {
   #menu ul {
       padding: 0px;
