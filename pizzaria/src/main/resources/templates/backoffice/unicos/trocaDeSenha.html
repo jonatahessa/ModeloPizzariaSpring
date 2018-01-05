@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html layout:decorate="~{backoffice/geral/barraSuperiorBackoffice}">
+    <head>
+        <title>Trocar senha</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <section class="container-fluid" layout:fragment="content">
+          <div class="row justify-content-center">
+            <form class="col-xs-12 col-sm-12 col-lg-6" th:action="@{/salvarsenha}" method="post">
+              <h1 class="text-center">Trocar Senha</h1>
+
+              <div class="alert alert-danger" th:if="${erro != null}">
+                  <h4 th:text="${erro}"></h4>
+              </div>
+
+              <div class="form-group">
+                <label>Nova Senha</label>
+                <input class="form-control" type="password" name="senha" placeholder="Insira a nova senha...">
+              </div>
+
+              <div class="form-group">
+                <label>Confirmação da nova senha</label>
+                <input class="form-control" type="password" name="senhaconfirm" placeholder="Confirme a nova senha...">
+              </div>
+
+              <div class="form-inline">
+                <div class="col-6">
+                  <a th:href="@{/manutencao}" class="btn btn-danger btn-block" role="button">Cancelar</a>
+                </div>
+
+                <div class="col-6">
+                  <button type="submit" class="btn btn-success btn-block">Salvar</button>
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </section>
+    </body>
+</html>

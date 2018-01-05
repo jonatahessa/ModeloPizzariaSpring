@@ -7,8 +7,8 @@ body {
 }
 
 hr.style6 {
-	background-color: black;
-	border-top: 2px dotted black;
+	background-color: #ebebeb;
+	border-top: 2px dotted #6D6D6D;
 }
 
 @media (min-width: 740px) {

@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import br.com.pizzaria.pizzaria.service.UsuarioService;
+import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -19,7 +20,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class UserServiceImpl implements UsuarioService {
-    
+
     @PersistenceContext
     private EntityManager entityManager;
 
@@ -35,16 +36,19 @@ public class UserServiceImpl implements UsuarioService {
 
     @Override
     public Usuario obter(Long codigoUser) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Query query = entityManager.createQuery(
+                "SELECT u FROM Usuario u "
+                + "WHERE u.codigoUser = :id").setParameter("id", codigoUser);
+        return (Usuario) query.getSingleResult();
     }
-    
+
     @Override
     public Usuario obterPorName(String name) {
-        Query query = entityManager.createQuery("SELECT u FROM Usuario u WHERE u.loginUser = :username").setParameter("username", name);     
-        Usuario user = (Usuario) query.getSingleResult();        
+        Query query = entityManager.createQuery("SELECT u FROM Usuario u WHERE u.loginUser = :username").setParameter("username", name);
+        Usuario user = (Usuario) query.getSingleResult();
         if (user == null) {
             return null;
-        }      
+        }
         return user;
     }
 
@@ -54,8 +58,9 @@ public class UserServiceImpl implements UsuarioService {
     }
 
     @Override
+    @Transactional
     public void alterar(Usuario user) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        entityManager.merge(user);
     }
 
     @Override
@@ -67,5 +72,5 @@ public class UserServiceImpl implements UsuarioService {
     public List<Usuario> pesquisar(String pesquisa) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

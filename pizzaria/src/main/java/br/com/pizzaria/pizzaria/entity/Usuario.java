@@ -31,17 +31,17 @@ public class Usuario implements Serializable {
     private Long codigoUser;
 
     @NotBlank(message = "O Login é obrigatório!")
-    @Size(min = 6, max = 20, message = "O login deve conter no mínimo 6 e no máximo 20 caractéres!")
+    @Size(min = 4, max = 20, message = "O login deve conter no mínimo 6 e no máximo 20 caractéres!")
     @Column(name = "LG_USER", length = 20, nullable = false)
     private String loginUser;
 
     @NotBlank(message = "A senha é obrigatória!")
-    @Size(min = 8, max = 20, message = "A senha deve conter no mínimo 8 e no máximo 20 caractéres!")
-    @Column(name = "PW_USER", length = 20, nullable = false)
+    @Size(min = 8, message = "A senha deve conter no mínimo 8 caractéres!")
+    @Column(name = "PW_USER", length = 100, nullable = false)
     private String passwordUser;
 
     @NotBlank(message = "O grupo de acesso do usuário é obrigatório!")
-    @Size(max = 10, message = "O grupo de acesso do usuário deve conter no máximo 10 caractéres!")
+    @Size(max = 50, message = "O grupo de acesso do usuário deve conter no máximo 10 caractéres!")
     @Column(name = "RL_USER", nullable = false)
     private String roleUser;
 
