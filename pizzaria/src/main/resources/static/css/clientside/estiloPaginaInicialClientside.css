@@ -108,7 +108,12 @@ hr.style6 {
 
 .sessoes-posicao {
   float: none;
+  padding-top: 50px;
   margin: auto;
+}
+
+.paineis {
+  margin-top: 25px;
 }
 
 .titulopreco * {

@@ -31,7 +31,7 @@
                       <td th:text="${p.codigoProduto}"></td>
                       <td th:text="${p.nomeProduto}"></td>
                       <td th:text="${p.descricaoProduto}"></td>
-                      <td th:text="${p.valorProduto}"></td>
+                      <td th:text="${#numbers.formatCurrency(p.valorProduto)}"></td>
                       <td th:text="${p.tipoProduto}"></td>
                       <td><a class="btn btn-warning btn-block" role="button" th:href="@{/manutencao/editar/{id} (id=${p.codigoProduto})}">Editar</a></td>
                       <td><form th:action="@{/manutencao/ativar}" method="post" th:if="${p.enabledProduto == false}">

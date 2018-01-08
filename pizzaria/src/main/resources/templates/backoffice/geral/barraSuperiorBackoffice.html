@@ -13,7 +13,7 @@
         <link rel="stylesheet" th:href="@{/css/backoffice/estiloBackofficeBarraSuperior.css}">
     </head>
     <body>
-        <section class="container-fluid">
+        <section id="barra-superior" class="container-fluid">
             <div class="row">
                 <div class="col-12">
                     <h1 class="text-center">Manutenção</h1>
@@ -21,20 +21,19 @@
             </div>
 
             <div class="row justify-content-end">
-                <div class="col-2">
-                    <a class="btn btn-primary btn-block" th:href="@{/manutencao/novo}" role="button">+ Produto</a>
+              <div class="col-3">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Opções</button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" th:href="@{/manutencao/novo}">Novo Produto</a>
+                    <a class="dropdown-item" th:href="@{/trocarsenha}">Alterar Senha</a>
+                    <a class="dropdown-item" th:href="@{/logout}">Sair</a>
+                  </div>
                 </div>
-
-                <div class="col-2">
-                    <a class="btn btn-secondary btn-block" th:href="@{/trocarsenha}">Trocar Senha</a>
-                </div>
-
-                <div class="col-2">
-                    <a class="btn btn-dark btn-block" th:href="@{/logout}">Sair</a>
-                </div>
+              </div>
             </div>
         </section>
 
-        <div layout:fragment="content"></div>
+        <div id="restante-pagina" layout:fragment="content"></div>
     </body>
 </html>

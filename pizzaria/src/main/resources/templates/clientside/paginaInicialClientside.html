@@ -78,7 +78,7 @@
             <h1 class="titulos">Promoções</h1>
             <hr/>
             <div th:each="promocao:${promocoes}" class="row justify-content-center">
-              <div class="col-xs-12 col-sm-12 col-lg-6 text-center border border-danger">
+              <div class="col-xs-12 col-sm-12 col-lg-6 text-center border border-danger paineis">
                 <h2 class="text-danger" th:text="${promocao.nomeProduto}"></h2>
                 <h3 class="text-dark" th:utext="${promocao.descricaoProduto}"></h3>
                 <h2 class="text-success" th:text="${#numbers.formatCurrency(promocao.valorProduto)}"></h2>
